@@ -9,7 +9,7 @@
             font-size: 25px;
         }
         
-        #form, #result, #factors1, #factors2  {
+        #form, #result, #factors {
             text-align: center;
         }
 
@@ -17,7 +17,7 @@
             padding-bottom: 30px;
         }
 
-        #result, #factors1, #factors2  {
+        #result, #factors  {
             padding-bottom: 10px;
         }
     </style>
@@ -33,8 +33,7 @@
             <button type="button" id="submit">Submit</button>
         </form>
         <div id="result"></div>
-        <div id="factors1"></div>
-        <div id="factors2"></div>
+        <div id="factors"></div>
 
         <script>
             document.getElementById("submit").onclick = function driver(){
@@ -51,8 +50,7 @@
                     document.getElementById("result").innerHTML = "The numbers: " + num1 + " and " + num2 + " are <strong>not amicable</strong>.";
                 }
 
-                document.getElementById("factors1").innerHTML = "The factors of " + num1 + " are: " + factors1;
-                document.getElementById("factors2").innerHTML = "The factors of " + num2 + " are: " + factors2;
+                document.getElementById("factors").innerHTML = "The factors of " + num1 + " are: " + factors1 + ". The factors of " + num2 + " are: " + factors2 + ".";
             }
            
             function getFactors(num) {
