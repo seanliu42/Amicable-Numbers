@@ -1,0 +1,80 @@
+<!doctype HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Amicable Numbers</title>
+    <style>
+        header {
+            text-align: center;
+            font-size: 25px;
+        }
+        
+        #form, #result, #factors {
+            text-align: center;
+        }
+
+        #form {
+            padding-bottom: 30px;
+        }
+
+        #result, #factors  {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+    <body>
+        <header>
+            <h1>Amicable Numbers</h1>
+        </header>
+        <form id="form">
+            <input type="number" name="num1" id="num1">
+            <input type="number" name="num2" id="num2">
+            <button type="button" id="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+        <div id="factors"></div>
+
+        <script>
+            function getFactors(num) {
+                factors = [];
+                for (n = 1; n < num; n++) {
+                    if ((num % n) == 0) {
+                        factors.push(n);
+                    }
+                }
+                return factors;
+            }
+
+            function isAmicable(num, factors) {
+                sum = 0;
+                for(n = 0; n < factors.length; n++) {
+                    sum+=factors[n];
+                }
+                if (sum == num) {
+                    return true;
+                }   
+                return false;
+            }
+
+            document.getElementById("submit").onclick = function driver(){
+                var num1 = document.getElementById("num1").value;
+                var num2 = document.getElementById("num2").value;
+
+                factors1 = getFactors(num1);
+                factors2 = getFactors(num2);
+
+                if (isAmicable(num1, factors2) && isAmicable(num2, factors1)) {
+                    document.getElementById("result").innerHTML = "The numbers: " + num1 + " and " + num2 + " are <strong>amicable!</strong>";
+                }
+                else {
+                    document.getElementById("result").innerHTML = "The numbers: " + num1 + " and " + num2 + " are <strong>not amicable</strong>.";
+                }
+
+                document.getElementById("factors").innerHTML = "The factors of " + num1 + " are: " + factors1 + ". The factors of " + num2 + " are: " + factors2 + ".";
+            }
+        </script>
+
+    </body>
+
+</html>
