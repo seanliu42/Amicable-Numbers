@@ -43,12 +43,13 @@
                         factors.push(n);
                     }
                 }
+                factors.push(num);
                 return factors;
             }
 
             function isAmicable(num, factors) {
                 var sum = 0;
-                for(n = 0; n < factors.length; n++) {
+                for(n = 0; n < factors.length - 1; n++) {
                     sum+=factors[n];
                 }
                 if (sum == num) {
